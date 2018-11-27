@@ -1,0 +1,76 @@
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 4020px;
+
+}
+
+.content{
+	width: 62.5%;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+header {
+	background-color: rgba(25,25,25,0);
+	width: 100%;
+	position: absolute;
+	top: 0;
+	height: 10%;
+	z-index: 999;
+}
+
+.first-screen .third-screen .fourth-screen {
+	height: 25%;
+	background-color: #ffffff;
+}
+
+.second-screen {
+	height: 25%;
+	background-color: #000000; 
+}
+
+
+
+div {
+	margin: 0;
+}
+
+.fullpage {
+	height: 90%;
+	margin: 0;
+	width: 100%;
+}
+
+.logo {
+
+	position: absolute;
+	top: 50%;
+	transform:translate(0,-50%);
+	float:left;
+}
+
+.contacts-top {
+	position: absolute;
+	top: 50%;
+	right:0%;
+	transform:translate(0,-50%);
+	float:right;
+	text-align: right;
+}
+
+.logo p {
+	font-size: 24px;
+}
+
+.contacts-top p {
+	font-size: 18px;
+}
+
+
+
+
+
+

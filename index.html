@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>EMS</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+	<script type="text/javascript" src="js/fullpage.js"></script>
+	<script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+</head>
+<body>
+	<header id = "header" class="top-bar">
+		<div class="content">
+
+			<div class="logo">
+				<p>LOGO</p>
+			</div>
+
+			<div class="contacts-top">
+				<p>+1 (800) 521 4815</p>
+				<p>130 E Seneca St, Ithaca, NY 14850, USA</p>
+			</div>
+
+		</div>
+	</header>
+<div id="fullpage">
+	<section class="first-screen section"></section>
+	<section class="second-screen section"></section>
+	<section class="third-screen section"></section>
+	<section class="fourth-screen section"></section>
+</div>
+
+<script type="text/javascript">
+new fullpage('#fullpage', {
+	//options here
+	licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+
+	anchors: ['firstPage','secondPage','thirdPage','fourthPage'],
+
+	onLeave: function(origin,destination,direction){
+		fullpage_api.setScrollingSpeed(400);
+		function makeBlack(){
+			document.querySelectorAll('.logo p')[0].style.color = "#ffffff";
+			document.querySelectorAll('.contacts-top p')[0].style.color = "#ffffff";
+			document.querySelectorAll('.contacts-top p')[1].style.color = "#ffffff";
+
+		}
+		function makeWhite(){
+			document.querySelectorAll('.logo p')[0].style.color = "#000000";
+			document.querySelectorAll('.contacts-top p')[0].style.color = "#000000";
+			document.querySelectorAll('.contacts-top p')[1].style.color = "#000000";
+		}
+		if(destination.index == 1 && direction == "down"){
+			setTimeout(makeBlack,300);
+			
+			
+		} 
+		if(destination.index != 1 && direction == "down") {
+			setTimeout(makeWhite,300);
+		
+		}
+
+		if(destination.index != 1 && direction == "up") {
+			setTimeout(makeWhite,50);
+		} 
+
+		if(destination.index == 1 && direction == "up") {
+			setTimeout(makeBlack,50);
+		}
+
+		
+	}
+});
+</script>
+
+
+</body>
+</html>
