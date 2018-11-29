@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header id = "header" class="top-bar">
-		<div class="content">
+		<div class="content" name="header-content">
 
 			<img src="images/logo_orange.svg" alt="BODYTEC" class="logo">
 
@@ -47,6 +47,10 @@
 </div>
 
 <script type="text/javascript">
+	var imageNew = document.createElement('img');
+		imageNew.src = "images/logo_white.svg";
+		imageNew.className ="logo";
+		imageNew.alt = "BODYTEC";
 new fullpage('#fullpage', {
 	//options here
 	licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -55,39 +59,55 @@ new fullpage('#fullpage', {
 
 	onLeave: function(origin,destination,direction){
 		fullpage_api.setScrollingSpeed(400);
+
+		var parentElem = document.getElementsByName('header-content')[0];
+		
+		
+
 		function makeBlack(){
-			document.querySelectorAll('.logo p')[0].style.color = "#ffffff";
-			document.querySelectorAll('.contacts-top p')[0].style.color = "#ffffff";
-			document.querySelectorAll('.contacts-top p')[1].style.color = "#ffffff";
+		
+			document.querySelectorAll('.contacts-top p')[0].style.color = "#000000";
+			document.querySelectorAll('.contacts-top p')[1].style.color = "#000000";
 
 		}
 		function makeWhite(){
-			document.querySelectorAll('.logo p')[0].style.color = "#000000";
-			document.querySelectorAll('.contacts-top p')[0].style.color = "#000000";
-			document.querySelectorAll('.contacts-top p')[1].style.color = "#000000";
-		}
-		if(destination.index == 1 && direction == "down"){
-			setTimeout(makeBlack,300);
-			
-			
-		} 
-		if(destination.index != 1 && direction == "down") {
-			setTimeout(makeWhite,300);
 		
+			document.querySelectorAll('.contacts-top p')[0].style.color = "#ffffff";
+			document.querySelectorAll('.contacts-top p')[1].style.color = "#ffffff";
 		}
 
-		if(destination.index != 1 && direction == "up") {
-			setTimeout(makeWhite,50);
+		function changeLogo(){
+			var imageOld = document.querySelectorAll('.logo')[0];
+			imageNew = parentElem.replaceChild(imageNew,imageOld);
+		}
+
+		if(destination.index == 1 && direction == "down"){
+			setTimeout(makeWhite,300);
+			setTimeout(changeLogo,300);
+			
+		} 
+		if(destination.index == 2 && direction == "down") {
+			setTimeout(makeBlack,300);
+			setTimeout(changeLogo,300);
+			
+		}
+
+		if(destination.index == 0 && direction == "up") {
+			setTimeout(changeLogo,50);
+			
 		} 
 
 		if(destination.index == 1 && direction == "up") {
-			setTimeout(makeBlack,50);
+			setTimeout(makeWhite,50);
+			setTimeout(changeLogo,50);
 		}
+
 
 		
 	}
 });
 </script>
+
 
 
 </body>
