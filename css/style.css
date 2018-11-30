@@ -33,7 +33,7 @@ header {
 
 .second-screen {
 	height: 25%;
-	background-color: #000000; 
+	background-color: #f16921; 
 }
 
 
@@ -164,15 +164,153 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 	border-radius:30%;
-	animation: scroll 2s infinite linear;
+	animation: scroll 1s infinite linear;
+
 }
 
 @keyframes scroll {
-	from, to  {
+	from  {
 		margin-top: 25%;
 	}
 
-	50% {
-		transform: translateY(50%);
+	to {
+		margin-top: 25%;
+		transform: translateY(70%);
+		
 	}
 }
+
+.text-wrapper {
+	width: 53.333333%;
+	height: 36.666666%;
+	position: absolute;
+	top: 31.666666%;
+
+}
+
+.text-wrapper-2 {
+	width: 53.333333%;
+	height: 51.333333%;
+	position: absolute;
+	top: 24.333333%;
+	display: none;
+}
+
+.text-wrapper-3 {
+	width: 53.333333%;
+	height: 41.555555%;
+	position: absolute;
+	top: 29.222222%;
+	display: none;
+}
+
+.text-header {
+	color: #ffffff;
+	font-family: 'Roboto Mono', Arial, monospace;
+	font-size: 8vmin;
+	font-weight: 500;
+	line-height: 1.25;
+	letter-spacing: -0.001388em;
+}
+
+.content-text {
+	color: #ffffff;
+	font-family: Roboto, Arial, monospace;
+	font-size: 4vmin;
+	font-weight: 500;
+	line-height: 1.22;
+	letter-spacing: 0.011111em;
+}
+
+.text-wrapper p:nth-child(2) {
+	margin-top: 2.222222%;
+}
+
+.image-wrapper {
+	width: 40%;
+	height: 53.333333%;
+	position: absolute;
+	top: 23.333333%;
+	right: 0;
+	background-color: #ffffff;
+	box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 5%;
+	overflow: hidden;
+}
+
+.slide-image {
+	width: 100%;
+	height: 100%;
+	display: block;
+	
+}
+
+.carousel {
+	width: 75%;
+	height: 75%;
+	margin: 12.5%;
+	border-radius: 5%;
+	overflow: hidden;
+}
+
+ul {
+	height: 100%;
+	width: 300%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+	transition: margin-left 400ms;
+}
+
+.carousel li {
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	width: 33.33333%;
+
+}
+
+.description {
+	width: 39.166666%;
+	height: 17.777777%;
+	position: absolute;
+	top: 22.222222%;
+	right: 0%;
+}
+
+.description p {
+	font-family: Roboto, Arial, monospace;
+	font-size: 2vmin;
+	color: #7f88a4;
+	font-weight: normal;
+	line-height: 1.56;
+	letter-spacing: 0.016em;
+}
+
+.description p:last-child{
+	margin-top: 4.255319%;
+}
+
+.third-screen .content>p:nth-child(2){
+	position: absolute;
+	top: 22.222222%;
+	font-family: 'Roboto Mono', Arial, monospace;
+	font-size: 5.555555vmin;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.032em;
+	color: #1f2435;
+}
+
+.third-screen .content>p:nth-child(3){
+	position: absolute;
+	top: 48.888888%;
+	font-family: 'Roboto Mono', Arial, monospace;
+	font-size: 5.555555vmin;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.032em;
+	color: #1f2435;
+}
+

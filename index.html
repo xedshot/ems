@@ -41,8 +41,70 @@
 		</div>
 		
 	</section>
-	<section class="second-screen section"></section>
-	<section class="third-screen section"></section>
+	<section class="second-screen section">
+		<div class="content">
+			<div class="text-wrapper">
+				<p class="text-header">
+				Efficiency
+				</p>
+				<p class="content-text">A 20-minute EMS workout equates to</p>
+				<p class="content-text">a 90-minute high-intensity gym class</p>
+				<p class="content-text">or personal training session and can</p>
+				<p class="content-text">easily be added to your existing</p>
+				<p class="content-text">workout routine or used solely.</p>
+			</div>
+			<div class="text-wrapper-2">
+				<p class="text-header">Motivation</p>
+				<p class="content-text">Personal training is a key part of EMS</p>
+				<p class="content-text">training as each session is monitored</p>
+				<p class="content-text">closely by the trainer. Their job is to</p>
+				<p class="content-text">find a balance between the</p>
+				<p class="content-text">performance level the participant is</p>
+				<p class="content-text">working at and their objectives,</p>
+				<p class="content-text">ensuring motivation levels remain high</p>
+				<p class="content-text">throughout.</p>
+			</div>
+			<div class="text-wrapper-3">
+				<p class="text-header">Safety</p>
+				<p class="content-text">Scientifically proven to be effective</p>
+				<p class="content-text">and safe by reputable sports</p>
+				<p class="content-text">universities and used by doctors,</p>
+				<p class="content-text">health clinics, physiotherapists and</p>
+				<p class="content-text">athletes for more than 50 years all</p>
+				<p class="content-text">over the world.</p>
+			</div>
+			<div id = "carousel" class="image-wrapper">
+				<div class="carousel">
+					<ul class="images">
+						<li><img src=images/slide1.jpg alt="SLIDE1" class="slide-image"></li>
+						<li><img src=images/slide2.jpg alt="SLIDE2" class="slide-image"></li>
+						<li><img src=images/slide3.jpg alt="SLIDE3" class="slide-image"></li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		
+	</section>
+	<section class="third-screen section">
+		<div class="content">
+			<div class="description">
+				<p>Private sessions are designed for clients who are looking<br> for one to one (one trainer, one client) sessions.</p>
+				<p>Semi-private sessions are designed for clients who want<br> to train with a friend or family member, hence one trainer<br> will train two clients at the same time.
+			</div>
+			<p>We have private and<br>
+			semi-private sessions</p>
+			<p>Price-list</p>
+			<div class="top-price">
+				<div class="trial"></div>
+				<div class="single"></div>
+			</div>
+			<div class="bot-price">
+				<div class="4-sessions"></div>
+				<div class="8-sessions"></div>
+				<div class="12-sessions"></div>
+			</div>
+		</div>
+	</section>
 	<section class="fourth-screen section"></section>
 </div>
 
@@ -51,6 +113,12 @@
 		imageNew.src = "images/logo_white.svg";
 		imageNew.className ="logo";
 		imageNew.alt = "BODYTEC";
+	var carousel = document.getElementById('carousel');
+	var list = carousel.querySelector('ul');
+	var listElems = carousel.querySelectorAll('li');
+	var position = 0;
+
+
 new fullpage('#fullpage', {
 	//options here
 	licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -58,44 +126,51 @@ new fullpage('#fullpage', {
 	anchors: ['firstPage','secondPage','thirdPage','fourthPage'],
 
 	onLeave: function(origin,destination,direction){
+		
 		fullpage_api.setScrollingSpeed(400);
-
 		var parentElem = document.getElementsByName('header-content')[0];
 		
 		
-
 		function makeBlack(){
 		
 			document.querySelectorAll('.contacts-top p')[0].style.color = "#000000";
 			document.querySelectorAll('.contacts-top p')[1].style.color = "#000000";
 
 		}
+
+
 		function makeWhite(){
 		
 			document.querySelectorAll('.contacts-top p')[0].style.color = "#ffffff";
 			document.querySelectorAll('.contacts-top p')[1].style.color = "#ffffff";
 		}
 
+
 		function changeLogo(){
 			var imageOld = document.querySelectorAll('.logo')[0];
 			imageNew = parentElem.replaceChild(imageNew,imageOld);
 		}
 
+
 		if(destination.index == 1 && direction == "down"){
 			setTimeout(makeWhite,300);
 			setTimeout(changeLogo,300);
 			
-		} 
+		}
+			
+		 
 		if(destination.index == 2 && direction == "down") {
 			setTimeout(makeBlack,300);
 			setTimeout(changeLogo,300);
 			
 		}
 
+
 		if(destination.index == 0 && direction == "up") {
 			setTimeout(changeLogo,50);
 			
 		} 
+
 
 		if(destination.index == 1 && direction == "up") {
 			setTimeout(makeWhite,50);
@@ -103,12 +178,65 @@ new fullpage('#fullpage', {
 		}
 
 
-		
+	},	
+	
+
+	afterLoad: function(origin,destination,direction){
+		if(destination.index == 1){
+			if(origin.index == 0){
+				var counter = 0;
+			} else {
+				var counter = 2;
+			}
+			fullpage_api.setAllowScrolling(false);	
+
+			document.getElementsByClassName('second-screen section')[0].onwheel = function(e){
+			if(counter == 0 && e.deltaY < 0){
+				fullpage_api.moveTo('firstPage');
+				fullpage_api.setAllowScrolling(true);
+			
+			}
+
+			if(counter == 2 && e.deltaY > 0){
+				fullpage_api.moveTo('thirdPage');
+				fullpage_api.setAllowScrolling(true);
+				
+			}
+			if(e.deltaY > 0 && counter !=2){
+				position = Math.max(position - 100,-200);
+				list.style.marginLeft = position + '%';
+				counter = counter + 1;
+			} 
+			if(counter !=0 && e.deltaY < 0) {
+				position = Math.min(position + 100, 0);
+				list.style.marginLeft = position + '%';
+				counter = counter - 1;
+			}
+
+			switch(counter){
+				case 0:
+					document.getElementsByClassName('text-wrapper')[0].style.display = "block";
+					document.getElementsByClassName('text-wrapper-2')[0].style.display = "none";
+					break;
+				case 1:
+					document.getElementsByClassName('text-wrapper')[0].style.display = "none";
+					document.getElementsByClassName('text-wrapper-2')[0].style.display = "block";
+					document.getElementsByClassName('text-wrapper-3')[0].style.display = "none";
+					break;
+				case 2:
+					document.getElementsByClassName('text-wrapper-2')[0].style.display = "none";
+					document.getElementsByClassName('text-wrapper-3')[0].style.display = "block";
+					break;
+				default:
+					break;
+			}
+		}
 	}
+
+}
+
 });
+
 </script>
-
-
-
 </body>
 </html>
