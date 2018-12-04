@@ -245,12 +245,14 @@ new fullpage('#fullpage', {
 				position = Math.max(position - 100,-200);
 				list.style.marginLeft = position + '%';
 				counter = counter + 1;
+				console.log(e.deltaY);
 
 			} 
 			if(counter !=0 && e.deltaY < 0) {
 				position = Math.min(position + 100, 0);
 				list.style.marginLeft = position + '%';
 				counter = counter - 1;
+				console.log(e.deltaY);
 			}
 
 			switch(counter){
