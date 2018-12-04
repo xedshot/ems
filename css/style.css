@@ -151,7 +151,7 @@ img {
 
 
 .first-screen{
-	background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),linear-gradient(299deg, rgba(255, 255, 255, 0.5), rgba(241, 105, 33, 0.4)), url(../images/bg.jpeg);
+	background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),linear-gradient(299deg, rgba(255, 255, 255, 0.5), rgba(241, 105, 33, 0.4)), url(../images/bg.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -335,7 +335,7 @@ ul {
 
 .bot-price {
 	position: relative;
-	top: 55.777777%;
+	top: 50.777777%;
 }
 
 .top-price div, .bot-price div {
@@ -388,4 +388,142 @@ ul {
 
 .trial {
 	width: 14.416666%;
+}
+
+.book-button {
+	cursor: pointer;
+	position: absolute;
+	top: 69.111111%;
+	height: 7.111111%;
+	width: 21.333333%;
+	background-image: linear-gradient(104deg, #ffa62e, #fb962e 20%, #f8852e 40%, #f3742d 60%, #ef612d 80%, #ea4d2c);
+	border-radius: 32px;
+	box-shadow: 0 15px 60px -20px #ef612d;
+}
+
+.circle {
+	position: absolute;
+	right: 12px;
+	top: 12px;
+	width: 4.444444vmin;
+	height: 4.444444vmin;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.2);
+	background-image: url(../images/arrow.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.book-button span {
+	position: relative;
+	top: 25%;
+	left: 13.28125%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 2.444444vmin;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 1.36;
+	letter-spacing: normal;
+	color: #ffffff;
+
+}
+
+form div {
+	display: inline-block;
+}
+
+.fourth-screen p:first-child {
+	position: absolute;
+	top: 22.666666%;
+	font-family: 'SF Sans Pro', sans-serif;
+	font-size: 5.777777vmin;
+	font-weight: 900;
+	font-style: normal;
+	line-height: 1.31;
+	letter-spacing: normal;
+	color: #050f29;
+
+}
+
+.fourth-screen p:nth-child(2) {
+	width: 60.833333%;
+	position: absolute;
+	top: 32.444444%;
+	font-family: 'SF Sans Pro', sans-serif;
+	font-weight: 900;
+	font-style: normal;
+	font-size: 3.555555vmin;
+	line-height: 1.5;
+	letter-spacing: normal;
+	color: #050f29;
+}
+
+form {
+	width: 67.5%;
+	height: 10.666666%;
+	position: absolute;
+	top: 50.222222%;
+}
+
+form span {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 2vmin;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.33;
+	letter-spacing: normal;
+	color: #828794;
+}
+
+.form-phone {
+	position: relative;
+	margin-left: 4%;
+	width: 30.8642%;
+	height: 100%;
+}
+
+.form-name{
+	width: 30.8642%;
+	height: 100%;
+}
+
+input {
+	width: 90%;
+	height: 64px;
+	border-radius: 60px;
+	border: 1px solid #eff1f6;
+	margin-top: 6px;
+	outline: none;
+	padding-left: 8%;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 2vmin;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.56;
+	letter-spacing: normal;
+	color: #1f2435;
+}
+
+.call-me-button {
+	margin-left: 4%;
+	cursor: pointer;
+	position: absolute;
+	height: 100%;
+	width: 30.8642%;
+	background-image: linear-gradient(104deg, #ffa62e, #fb962e 20%, #f8852e 40%, #f3742d 60%, #ef612d 80%, #ea4d2c);
+	border-radius: 70px;
+	box-shadow: 0 15px 60px -20px #ef612d;
+	text-align: center;
+}
+
+.call-me-button span{
+	font-family: 'PT Sans', sans-serif;
+	font-size: 2.444444vmin;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 1.36;
+	letter-spacing: normal;
+	color: #ffffff;
+	position: relative;
+	top: 30%;
 }

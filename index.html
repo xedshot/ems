@@ -122,9 +122,29 @@
 					<p><span>$70</span> / workout</p>
 				</div>
 			</div>
+			<div class="book-button">
+				<span>Book a session</span>
+				<div class="circle"></div>
+			</div>
 		</div>
 	</section>
-	<section class="fourth-screen section"></section>
+	<section class="fourth-screen section">
+		<div class="content">
+			<p>Interested in technology?</p>
+			<p>Call us or just leave your phone number and we will call you</p>
+			<form action="#">
+				<div class="form-name">
+					<span>Name</span><br>
+					<input type="text" name="Name" placeholder="John">
+				</div>
+				<div class="form-phone">
+					<span>Phone number</span><br>
+					<input type="text" name="Phone" placeholder="+1 (800) 123 4567">
+				</div>
+				<div class="call-me-button"><span>Call me</span></div>
+			</form>
+		</div>
+	</section>
 </div>
 
 <script type="text/javascript">
@@ -225,6 +245,7 @@ new fullpage('#fullpage', {
 				position = Math.max(position - 100,-200);
 				list.style.marginLeft = position + '%';
 				counter = counter + 1;
+
 			} 
 			if(counter !=0 && e.deltaY < 0) {
 				position = Math.min(position + 100, 0);
