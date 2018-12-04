@@ -155,12 +155,15 @@
 	var carousel = document.getElementById('carousel');
 	var list = carousel.querySelector('ul');
 	var listElems = carousel.querySelectorAll('li');
-	var position = 0;
+	
+	
+	
 
-
+	
 new fullpage('#fullpage', {
 	//options here
 	licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+	keyboardScrolling: false,
 
 	anchors: ['firstPage','secondPage','thirdPage','fourthPage'],
 
@@ -223,17 +226,89 @@ new fullpage('#fullpage', {
 	afterLoad: function(origin,destination,direction){
 		if(destination.index == 1){
 			if(origin.index == 0){
+				var position = 0;
 				var counter = 0;
+				fullpage_api.setAllowScrolling(false);
+				var elem = document.getElementsByClassName('second-screen section')[0];
+				elem.addEventListener('wheel', mouseWheelHandler,{passive: true});	
 			} else {
+				var position = 200;
 				var counter = 2;
+				fullpage_api.setAllowScrolling(false);
+				var elem = document.getElementsByClassName('second-screen section')[0];
+				elem.addEventListener('wheel', mouseWheelHandler,{passive: true});	
 			}
-			fullpage_api.setAllowScrolling(false);	
 
-			document.getElementsByClassName('second-screen section')[0].onwheel = function(e){
+			console.log(counter);
+			
+
+		function mouseWheelHandler(e){
+
+			e = e || window.event;
+
+  			if(counter == 0 && e.deltaY < 0){
+
+        		fullpage_api.moveTo('firstPage');
+        		fullpage_api.setAllowScrolling(true);
+			}
+
+      		if(counter == 2 && e.deltaY > 0){
+
+        		fullpage_api.moveTo('thirdPage');
+        		fullpage_api.setAllowScrolling(true);
+        		
+            }
+
+     		if(e.deltaY > 0 && counter !=2){
+
+        		//position = Math.max(position - 100,-200);
+        		//list.style.marginLeft = position + '%';
+        		counter = counter + 1;
+        		elem.removeEventListener('wheel', mouseWheelHandler);
+        		setTimeout(function(){elem.addEventListener('wheel', mouseWheelHandler,{passive: true})},400);
+        		console.log(position);
+            } 
+
+      		if(counter !=0 && e.deltaY < 0) {
+
+        		//position = Math.min(position + 100, 0);
+       			//list.style.marginLeft = position + '%';
+        		counter = counter - 1;
+        		elem.removeEventListener('wheel', mouseWheelHandler);
+        		setTimeout(function(){elem.addEventListener('wheel', mouseWheelHandler,{passive: true})},400);
+    			console.log(position);
+      		}
+
+      		switch(counter){
+        	case 0:
+          		document.getElementsByClassName('text-wrapper')[0].style.display = "block";
+          		document.getElementsByClassName('text-wrapper-2')[0].style.display = "none";
+          		list.style.marginLeft = '0%';
+          	break;
+        	case 1:
+          		document.getElementsByClassName('text-wrapper')[0].style.display = "none";
+          		document.getElementsByClassName('text-wrapper-2')[0].style.display = "block";
+          		document.getElementsByClassName('text-wrapper-3')[0].style.display = "none";
+          		list.style.marginLeft = '-100%';
+          	break;
+        	case 2:
+          		document.getElementsByClassName('text-wrapper-2')[0].style.display = "none";
+          		document.getElementsByClassName('text-wrapper-3')[0].style.display = "block";
+          		list.style.marginLeft = '-200%';
+          	break;
+        	default:
+          	break;
+      		}
+		}
+
+
+			
+			/*document.getElementsByClassName('second-screen section')[0].onwheel = function(e){
+
+			
 			if(counter == 0 && e.deltaY < 0){
 				fullpage_api.moveTo('firstPage');
 				fullpage_api.setAllowScrolling(true);
-			
 			}
 
 			if(counter == 2 && e.deltaY > 0){
@@ -241,18 +316,19 @@ new fullpage('#fullpage', {
 				fullpage_api.setAllowScrolling(true);
 				
 			}
+
 			if(e.deltaY > 0 && counter !=2){
 				position = Math.max(position - 100,-200);
 				list.style.marginLeft = position + '%';
-				counter = counter + 1;
-				console.log(e.deltaY);
+				counter = counter + 1;	
 
 			} 
+
 			if(counter !=0 && e.deltaY < 0) {
 				position = Math.min(position + 100, 0);
 				list.style.marginLeft = position + '%';
 				counter = counter - 1;
-				console.log(e.deltaY);
+				
 			}
 
 			switch(counter){
@@ -272,7 +348,7 @@ new fullpage('#fullpage', {
 				default:
 					break;
 			}
-		}
+		}*/
 	}
 
 }
